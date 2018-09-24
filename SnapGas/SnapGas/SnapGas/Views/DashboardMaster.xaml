@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.DashboardMaster"
+             Title="Master">
+  <StackLayout>
+    <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+      <ListView.Header>
+        <Grid>
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+          </Grid.RowDefinitions>
+          <Image Source="CarDashboard.jpg" Aspect="AspectFill" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+          <Label Grid.Column="1" Grid.Row="2" Text="Snap Gas" TextColor="Gray" Style="{DynamicResource SubtitleStyle}"/>
+                </Grid>
+      </ListView.Header>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="0.5"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30"
+                                           VerticalOptions="Center" HorizontalOptions="Center"
+                                           Source="{Binding Icon}">
+                                </Image>
+                                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" 
+                                           Text="{Binding Title}" FontSize="24"/>
+                                <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="LightGray" HeightRequest="0.5"/>
+                            </Grid>
+                        </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

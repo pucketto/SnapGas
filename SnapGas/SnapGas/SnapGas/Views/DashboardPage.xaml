@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.DashboardPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="GasPump.jpg" Aspect="AspectFill"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Total Cars: " HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Total Fuel Instances: " HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Total Efficiency Reports: " HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding TotalCars}" HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding TotalFuelInstances}" HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Row="2" Grid.Column="01" Text="{Binding TotalEfficiencyReports}" HorizontalOptions="Start" FontSize="Large" FontAttributes="Bold"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
