@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.AddFuelInstancePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Amount Filled: " FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="Odometer Reading: " FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="Total Price: " FontSize="Large" FontAttributes="Bold"/>
+
+                <Entry Grid.Column="1" Grid.Row="0" Text="{Binding FuelingInstance.AmountFilled}" Keyboard="Numeric" />
+                <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FuelingInstance.NewOdometerReading}" Keyboard="Numeric" />
+                <Entry Grid.Column="1" Grid.Row="2" Text="{Binding FuelingInstance.Price}" Keyboard="Numeric" />
+            </Grid>
+
+            
+            <Image HeightRequest="65" WidthRequest="65" Source="Save.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="On_SaveTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

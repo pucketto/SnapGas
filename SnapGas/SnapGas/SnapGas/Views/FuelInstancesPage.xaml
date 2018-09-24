@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.FuelInstancesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Plus.png" Clicked="On_AddClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="EmptyFuelGauge.jpg" Aspect="AspectFill"/>
+            </Grid>
+
+            <Label Text="No Fuel Instances..." IsVisible="{Binding NoFuelingInstances}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="Click the Plus above to Add a New One" IsVisible="{Binding NoFuelingInstances}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView RowHeight="100" ItemSelected="On_FuelInstanceSelected" ItemsSource="{Binding MyFuelingInstances}" IsVisible="{Binding HasFuelingInstances}" IsEnabled="{Binding HasFuelingInstances}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remove" Clicked="On_RemoveClicked" CommandParameter="{Binding .}"  IsDestructive="true" />
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.Column="0" Grid.Row="0"  Source="GasPumpHandle.Png"/>
+
+                                <Image Grid.Column="3" Grid.Row="0" Source="Selected.Png" IsVisible="{Binding IsSelected}"/>
+                                <Image Grid.Column="3" Grid.Row="0" Source="NotSelected.Png" IsVisible="{Binding NotSelected}"/>
+
+                                <Label Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding DateFilled}" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+
+                                <Label Grid.Column="0" Grid.Row="1" Text="Distance Travelled: " FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Distance}" FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Grid.Column="2" Grid.Row="1" Text="Amount Filled: " FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Grid.Column="3" Grid.Row="1" Text="{Binding AmountFilled}" FontSize="Medium" HorizontalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
