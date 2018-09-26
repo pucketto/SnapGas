@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.AddCarPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Make: " FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="Model: " FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="Tank Size: " FontSize="Large" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="3" Text="Odometer Reading: " FontSize="Large" FontAttributes="Bold"/>
+
+                <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Car.Make}" Placeholder="Enter Car Make Here"/>
+                <Entry Grid.Column="1" Grid.Row="1" Text="{Binding Car.Model}" Placeholder="Enter Car Model Here"/>
+                <Entry Grid.Column="1" Grid.Row="2" Text="{Binding Car.TankSize}" Keyboard="Numeric" Placeholder="Enter Gas Tank Size Here"/>
+                <Entry Grid.Column="1" Grid.Row="3" Text="{Binding Car.OdometerReading}" Keyboard="Numeric" Placeholder="Enter Current Odometer Reading"/>
+            </Grid>
+
+            <Image HeightRequest="65" WidthRequest="65" Source="Save.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="On_SaveTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
