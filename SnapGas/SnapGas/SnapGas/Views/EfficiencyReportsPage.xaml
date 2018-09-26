@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapGas.Views.EfficiencyReportsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Plus.png" Clicked="On_AddClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="Data.jpg" Aspect="AspectFill"/>
+            </Grid>
+
+            <Label Text="No Efficiency Reports..." IsVisible="{Binding NoReports}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="Click the Plus about to Generate one" IsVisible="{Binding NoReports}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView RowHeight="100" ItemsSource="{Binding MyEfficiencyReports}" IsVisible="{Binding HasReports}" IsEnabled="{Binding HasReports}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.Column="0" Grid.Row="0"  Source="FuelReport.Png"/>
+
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding SelectedCar.Make}" FontSize="Medium"/>
+                                <Label Grid.Column="3" Grid.Row="0" Text="{Binding SelectedCar.Model}" FontSize="Medium"/>
+                                <Label Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding DateCreated}" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+
+                                <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Text="Calculated MPG: " FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding CalculatedEfficiency}" FontSize="Medium" HorizontalOptions="Center"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
